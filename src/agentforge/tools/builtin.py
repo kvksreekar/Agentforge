@@ -3,12 +3,13 @@ from __future__ import annotations
 
 import ast
 import operator as op
+from collections.abc import Callable
 
 from .registry import ToolRegistry
 
 builtin_tools = ToolRegistry()
 
-_OPS = {
+_OPS: dict[type[ast.AST], Callable[..., float]] = {
     ast.Add: op.add,
     ast.Sub: op.sub,
     ast.Mult: op.mul,

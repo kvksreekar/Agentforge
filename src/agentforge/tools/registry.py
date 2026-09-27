@@ -44,7 +44,7 @@ class ToolRegistry:
             raise KeyError(f"Unknown tool: {name!r}. Available: {sorted(self._tools)}")
         return self._tools[name]
 
-    def list(self) -> list[Tool]:
+    def all(self) -> list[Tool]:
         return list(self._tools.values())
 
     def specs(self) -> list[dict[str, Any]]:

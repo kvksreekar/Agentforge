@@ -52,7 +52,7 @@ class Agent:
     tracer: Tracer = field(default_factory=Tracer)
 
     def _system_prompt(self) -> str:
-        tool_list = "\n".join(f"- {t.name}: {t.description}" for t in self.tools.list())
+        tool_list = "\n".join(f"- {t.name}: {t.description}" for t in self.tools.all())
         return SYSTEM_TEMPLATE.format(
             name=self.name,
             persona=self.persona,
